@@ -1,6 +1,6 @@
 # phpsap
-PHP SAP is an API gateway class that enables php developers to easily integrate SMS,Airtime and Mobile payments using MPESA into their dynamic web applications.It is very easy to get started by creating an account and grabbing an API Key.
-Simpliy hit this link to get started https://renthero.co.ke/phpsap
+PHP SAP is an API gateway class that enables php developers to easily integrate SMS,Airtime and Mobile payments using MPESA into their dynamic web applications.It is very easy to get started by creating an account and grabbing an API Key.Upon creation of an account a SAP wallet is automatically created for you,you will have to top it up with cash to start using our API to send SMS and distribute airtime.
+Simply hit this link to get started https://renthero.co.ke/phpsap
 # Getting started
 1. [DOWNLOAD](https://github.com/ronniengoda/phpsap/blob/master/PHPSAPGateway.php) our fantastic gateway class and place it in your project directoy
 ## Sending SMS
