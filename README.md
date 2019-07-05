@@ -3,7 +3,7 @@ PHP SAP is an API gateway class that enables php developers to easily integrate 
 Simpliy hit this link to get started https://renthero.co.ke/phpsap
 # Getting started
 1. [DOWNLOAD](https://github.com/ronniengoda/phpsap/blob/master/PHPSAPGateway.php) our fantastic gateway class and place it in your project directoy
-## Sending an sms
+## Sending SMS
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -61,6 +61,31 @@ $AirtimeDataEncoded = json_encode($AirtimeData);
 	//Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ReceiveAirtimeData($AirtimeDataEncoded);
+} catch (Exception $e) {
+	echo $e->getMessage();
+}
+```
+## Checking Your SAP Wallet Balance
+```php
+require_once 'PHPSAPGateway.php';
+$gateway= new PhpSapGateway;
+
+//Set your authentication credentials below
+$username="sandbox";
+$apiKey="api key here";
+
+//Pass authentication into an array
+$SAPWalletBalanceData = array(
+	'username'=>$username,
+	'apiKey'=>$apiKey
+);
+
+//Convert the array to JSON String.
+$SAPWalletBalanceDataEncoded = json_encode($SAPWalletBalanceData);
+
+//Thats it,from here we will take care of the rest.
+try {
+	$result=$gateway->ReceiveSAPWalletBalanceData($SAPWalletBalanceDataEncoded);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
