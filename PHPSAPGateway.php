@@ -46,7 +46,7 @@
     }
 
   	function ProcessBalance($data){
-  		$url = 'https://www.ronaldngoda.info/ngodagrands/payments/balance.php';
+  		$url = '#';
   		$execute=$this->cUrlParams($url,$data);
   	}
 
