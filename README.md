@@ -121,4 +121,11 @@ try {
 	echo $e->getMessage();
 }
 ```
+###Mobile Checkout API Response Contents
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 ![alt text](https://github.com/ronniengoda/phpsap/blob/master/phpsapweb.png "PHP SAP")
