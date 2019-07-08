@@ -136,4 +136,3 @@ try {
 |description	|A detailed description of this transaction, including a more detailed failure reason in the case of failures.|
 |requestMetadata|Any metadata that was sent by your application when it initiated this transaction|
 |transactionDate|The date and time (according to the payment provider) when a successful transaction was completed.|
-![alt text](https://github.com/ronniengoda/phpsap/blob/master/phpsapweb.png "PHP SAP")
