@@ -61,7 +61,26 @@
   	}
 
   	function ProcessLNMO($data){
-  		$url = '#';
+  		$url = 'https://www.renthero.co.ke/phpsap/developer/payments/lnmo.php';
+      $decodeData=json_decode($data);
+      if (strlen($decodeData->PhoneNumber)==0||strlen($decodeData->Amount)==0) {
+      # code...
+        throw new PhpSapGatewayException('Please supply both PhoneNumber and Amount parameters');
+      }
+      elseif (strrpos($decodeData->PhoneNumber, '+254')!==0) {
+      # code...
+        throw new PhpSapGatewayException('Please ensure the Phone Number is in international format');
+        
+      }
+      elseif ($decodeData->Amount<10) {
+        # code...
+        throw new PhpSapGatewayException('Amount cannot be less than 10');
+      }
+      elseif (!ctype_digit($decodeData->Amount)) {
+        # code...
+        throw new PhpSapGatewayException('Please ensure amount does not contain non numeric values');
+      }
+
   		$execute=$this->cUrlParams($url,$data);
   	}
 
@@ -129,4 +148,3 @@
   		$result = curl_exec($ch);
   	}
   }
-  ?>
