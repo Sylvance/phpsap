@@ -168,3 +168,25 @@ try {
 |description	|A detailed description of this transaction, including a more detailed failure reason in the case of failures.|
 |requestMetadata|Any metadata that was sent by your application when it initiated this transaction|
 |transactionDate|The date and time (according to the payment provider) when a successful transaction was completed.|
+
+## Checking Your Payments Wallet Balance
+```php
+require_once 'PHPSAPGateway.php';
+$gateway= new PhpSapGateway;
+//Set your authentication credentials below(Required)
+$username="username";
+$apiKey="api key";
+//Pass authentication into an array
+$PaymentsWalletBalanceData = array(
+	'username'=>$username,
+	'apiKey'=>$apiKey
+);
+//Convert the array to JSON String.
+$PaymentsWalletBalanceDataEncoded = json_encode($PaymentsWalletBalanceData);
+//Thats it,from here we will take care of the rest.
+try {
+	$result=$gateway->ProcessBalance($PaymentsWalletBalanceDataEncoded);
+} catch (Exception $e) {
+	echo $e->getMessage();
+}
+```
