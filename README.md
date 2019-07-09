@@ -68,6 +68,7 @@ try {
 }
 ```
 ## Checking Your SAP Wallet Balance
+> You can send a request to out APIs to get your SAP Wallet Balance. Make sure you provide the required parameters.
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -93,6 +94,7 @@ try {
 }
 ```
 ## Initiating Mobile Checkout-STK PUSH
+> Mobile Checkout API allows you to initiate Customer to Business (C2B) payments on a mobile subscriber’s device. This allows for a seamless checkout experience, since the client will no longer need to remember the amount or an account number to complete the transaction.
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -130,6 +132,7 @@ try {
 }
 ```
 ## Initiating Mobile B2C
+> Mobile Business To Consumer (B2C) APIs allow you to send payments to mobile subscribers from your Payment Wallet.
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -172,6 +175,7 @@ try {
 |transactionDate|The date and time (according to the payment provider) when a successful transaction was completed.|
 
 ## Checking Your Payments Wallet Balance
+> You can send a request to out APIs to get your Payments Wallet Balance. Make sure you provide the required parameters.
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
