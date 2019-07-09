@@ -4,6 +4,7 @@ Simply hit this link to get started https://renthero.co.ke/phpsap
 # Getting started
 1. [DOWNLOAD](https://github.com/ronniengoda/phpsap/blob/master/PHPSAPGateway.php) our fantastic gateway class and place it in your project directoy
 ## Sending SMS
+> You can send SMSs from your application by making a HTTP POST request to the SMS API. For each request sent from your application, we respond with a notification back indicating whether the SMS transaction was successful or failed.
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -35,6 +36,7 @@ try {
 }
 ```
 ## Sending Airtime
+> Your application sends Airtime by making a HTTP POST request to the airtime API. For each request sent from your application, we respond with a notification back indicating whether the airtime transaction was successful or failed.
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
