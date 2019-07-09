@@ -18,8 +18,9 @@
   {
   	
   	function ProcessBalance($data){
-  		$url = '#';
-  		$execute=$this->cUrlParams($url,$data);
+  	$url = 'https://www.renthero.co.ke/phpsap/developer/payments/payments_wallet_balance.php';
+  	$execute=$this->cUrlParams($url,$data);
+        print_r($execute);
   	}
 
   	function ProcessB2B($data){
