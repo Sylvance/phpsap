@@ -8,13 +8,13 @@ Simply hit this link to get started https://renthero.co.ke/phpsap
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
 
-//Set your authentication credentials below
-$username="sanxbox";
-$apiKey="api key here";
+//Set your authentication credentials below(Required)
+$username="username";
+$apiKey="api key";
 
-//Set SMS Receiver(in international format for this case +254) and Message below
+//Set SMS Receiver(in international format for this case +254) and Message below(Required)
 $Receiver="+254708344101";
-$Message="Hello there,PHP SAP Here!!";
+$Message="i love nerds";
 
 //Pass authentication credentials and your SMS data into an array
 $SMSData = array(
@@ -29,7 +29,7 @@ $SMSDataEncoded = json_encode($SMSData);
 
 	//Thats it,from here we will take care of the rest.
 try {
-	$result=$gateway->ReceiveSMSData($SMSDataEncoded);
+	$result=$gateway->ProcessSMS($SMSDataEncoded);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
@@ -39,11 +39,11 @@ try {
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
 
-//Set your authentication credentials below
-$username="sandbox";
-$apiKey="api key here";
+//Set your authentication credentials below(Required)
+$username="username";
+$apiKey="api key";
 
-//Set airtime Receiver and Amount below
+//Set airtime Receiver and Amount below(Required)
 $Receiver="+254708344101";
 $Amount="10";
 
@@ -60,7 +60,7 @@ $AirtimeDataEncoded = json_encode($AirtimeData);
 
 	//Thats it,from here we will take care of the rest.
 try {
-	$result=$gateway->ReceiveAirtimeData($AirtimeDataEncoded);
+	$result=$gateway->ProcessAirtime($AirtimeDataEncoded);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
@@ -70,9 +70,9 @@ try {
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
 
-//Set your authentication credentials below
-$username="sandbox";
-$apiKey="api key here";
+//Set your authentication credentials below(Required)
+$username="username";
+$apiKey="api key";
 
 //Pass authentication into an array
 $SAPWalletBalanceData = array(
@@ -85,7 +85,7 @@ $SAPWalletBalanceDataEncoded = json_encode($SAPWalletBalanceData);
 
 //Thats it,from here we will take care of the rest.
 try {
-	$result=$gateway->ReceiveSAPWalletBalanceData($SAPWalletBalanceDataEncoded);
+	$result=$gateway->ProcessSAPWalletBalance($SAPWalletBalanceDataEncoded);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
@@ -95,28 +95,34 @@ try {
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
 
-//Set your authentication credentials below
+//Set your authentication credentials below(Required)
 $username="username";
 $apiKey="api key";
 
-//Set PhoneNumber and Amount below
+//Set PhoneNumber and Amount below(Required)
 $PhoneNumber="+254708344101";
 $Amount="10";
+
+//Set any metadata you want to attach to the request below(optional);
+$LNMOmetadata = [
+		"MetaData"   => "0987654321"
+	];
 
 //Pass authentication credentials and your LNMO data into an array
 $LNMOData = array(
 	'PhoneNumber' => $PhoneNumber,
 	'Amount' => $Amount,
 	'username'=>$username,
-	'apiKey'=>$apiKey
+	'apiKey'=>$apiKey,
+	'LNMOmetadata'=>$LNMOmetadata
 );
 
-	//Convert the array into JSON string.
+//Convert the array into JSON string.
 $LNMODataEncoded = json_encode($LNMOData);
 
 	//Thats it,from here we will take care of the rest.
 try {
-	$result=$gateway->ReceiveLNMOData($LNMODataEncoded);
+	$result=$gateway->ProcessLNMO($LNMODataEncoded);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
