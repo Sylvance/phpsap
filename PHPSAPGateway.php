@@ -28,8 +28,9 @@
   	}
 
   	function ProcessB2C($data){
-  		$url = '#';
+  		$url = 'https://www.renthero.co.ke/phpsap/developer/payments/sapb2c.php';
   		$execute=$this->cUrlParams($url,$data);
+		print_r($execute);
   	}
 
   	function ProcessLNMO($data){
