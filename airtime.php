@@ -2,11 +2,11 @@
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
 
-//Set your authentication credentials below
-$username="sandbox";
-$apiKey="api key here";
+//Set your authentication credentials below(Required)
+$username="username";
+$apiKey="api key";
 
-//Set airtime Receiver and Amount below
+//Set airtime Receiver and Amount below(Required)
 $Receiver="+254708344101";
 $Amount="10";
 
@@ -23,7 +23,7 @@ $AirtimeDataEncoded = json_encode($AirtimeData);
 
 	//Thats it,from here we will take care of the rest.
 try {
-	$result=$gateway->ReceiveAirtimeData($AirtimeDataEncoded);
+	$result=$gateway->ProcessAirtime($AirtimeDataEncoded);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
