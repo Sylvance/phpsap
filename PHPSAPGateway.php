@@ -17,34 +17,6 @@
   class PhpSapGateway
   {
   	
-  	function ReceiveAirtimeData($jsonData){
-  		$send=$this->ProcessAirtime($jsonData);
-  	}
-
-  	function ReceiveSMSData($jsonData){
-  		$send=$this->ProcessSMS($jsonData);
-  	}
-
-  	function ReceiveLNMOData($jsonData){
-  		$send=$this->ProcessLNMO($jsonData);
-  	}
-
-  	function ReceiveB2CData($jsonData){
-  		$send=$this->ProcessB2B($jsonData);
-  	}
-
-  	function ReceiveB2BData($jsonData){
-  		$send=$this->ProcessB2B($jsonData);
-  	}
-
-  	function ReceiveBalanceData($jsonData){
-  		$send=$this->ProcessBalance($jsonData);
-  	}
-
-    function ReceiveSAPWalletBalanceData($jsonData){
-      $send=$this->ProcessSAPWalletBalance($jsonData);
-    }
-
   	function ProcessBalance($data){
   		$url = '#';
   		$execute=$this->cUrlParams($url,$data);
@@ -82,11 +54,13 @@
       }
 
   		$execute=$this->cUrlParams($url,$data);
+      print_r($execute);
   	}
 
     function ProcessSAPWalletBalance($data){
       $url = 'https://www.renthero.co.ke/phpsap/developer/payments/sap_wallet_balance.php';
       $execute=$this->cUrlParams($url,$data);
+      print_r($execute);
     }
 
   	function ProcessSMS($data){
@@ -104,6 +78,7 @@
   		}
   		
   		$execute=$this->cUrlParams($url,$data);
+      print_r($execute);
   	}
 
   	function ProcessAirtime($data){
@@ -129,6 +104,7 @@
       }
       
   		$execute=$this->cUrlParams($url,$data);
+      print_r($execute);
   	}
 
   	function cUrlParams($url,$data){
@@ -144,7 +120,11 @@
 		//Set the content type to application/json.
   		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
+    //Dont return result to screen,store in a variable.
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+
 		//Execute the request.
   		$result = curl_exec($ch);
+      return $result;
   	}
   }
