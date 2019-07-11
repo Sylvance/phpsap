@@ -94,7 +94,7 @@ try {
 }
 ```
 # Mobile Payments
-> We currently support Mobile checkout/STK-PUSH,Mobile B2C and Payments Wallet Balance.Ensure you set your callback urls in the developer portal so as to get notifications from our API.Also note that all payment transaction costs will be deducted from your SAP wallet and not your Payments wallet.
+> We currently support Mobile checkout/STK-PUSH, Mobile B2C, Mobile B2B and Payments Wallet Balance.Ensure you set your callback urls in the developer portal so as to get notifications from our API.Also note that all payment transaction costs will be deducted from your SAP wallet and not your Payments wallet.
 ## Initiating Mobile Checkout-STK PUSH
 > Mobile Checkout API allows you to initiate Customer to Business (C2B) payments on a mobile subscriber’s device. This allows for a seamless checkout experience, since the client will no longer need to remember the amount or an account number to complete the transaction.
 ```php
