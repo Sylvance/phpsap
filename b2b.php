@@ -3,12 +3,12 @@ require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
 
 //Set your authentication credentials below(Required)
-$username="ronniengoda";
-$apiKey="z3qww3f7z27b19h2chumz1cs2uhrt8pxo574sphh1szbm59fx0poufadwgbnf9fu";
+$username="username";
+$apiKey="api key";
 
 // Set the destination channel,destination account and amount(Required)
-$DestinationChannel ="525900";
-$DestinationAccount ="renthero.api";
+$DestinationChannel ="paybill no";
+$DestinationAccount ="account";
 $Amount="10";
 
 //Pass authentication credentials and your B2B data into an array
