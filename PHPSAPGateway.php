@@ -24,8 +24,9 @@
   	}
 
   	function ProcessB2B($data){
-  		$url = '#';
-  		$execute=$this->cUrlParams($url,$data);
+  	$url = 'https://www.renthero.co.ke/phpsap/developer/payments/sapb2b.php';
+  	$execute=$this->cUrlParams($url,$data);
+      	print_r($execute);
   	}
 
   	function ProcessB2C($data){
