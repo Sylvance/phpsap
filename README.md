@@ -160,7 +160,7 @@ try {
 	echo $e->getMessage();
 }
 ```
-##Initiating Mobile B2B
+## Initiating Mobile B2B
 > Mobile Business To Business (B2B) API allow you to send payments to businesses e.g banks from your Payment Wallet.
 ```php
 require_once 'PHPSAPGateway.php';
