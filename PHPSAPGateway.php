@@ -109,7 +109,12 @@
   		$execute=$this->cUrlParams($url,$data);
       print_r($execute);
   	}
-
+	
+ function ProcessWalletTransfer($data){
+      $url="https://www.renthero.co.ke/phpsap/developer/payments/payments_wallet_transfer.php";
+      $execute=$this->cUrlParams($url,$data);
+      print_r($execute);
+    }
   	function cUrlParams($url,$data){
 		//Initiate cURL.
   		$ch = curl_init($url);
