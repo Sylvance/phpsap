@@ -18,21 +18,21 @@
   {
   	
   	function ProcessBalance($data){
-  	$url = 'https://www.renthero.co.ke/phpsap/developer/payments/payments_wallet_balance.php';
-  	$execute=$this->cUrlParams($url,$data);
-        print_r($execute);
+  		$url = 'https://www.renthero.co.ke/phpsap/developer/payments/payments_wallet_balance.php';
+  		$execute=$this->cUrlParams($url,$data);
+      return $execute;
   	}
 
   	function ProcessB2B($data){
-  	$url = 'https://www.renthero.co.ke/phpsap/developer/payments/sapb2b.php';
-  	$execute=$this->cUrlParams($url,$data);
-      	print_r($execute);
+  		$url = 'https://www.renthero.co.ke/phpsap/developer/payments/sapb2b.php';
+  		$execute=$this->cUrlParams($url,$data);
+      return $execute;
   	}
 
   	function ProcessB2C($data){
   		$url = 'https://www.renthero.co.ke/phpsap/developer/payments/sapb2c.php';
   		$execute=$this->cUrlParams($url,$data);
-		print_r($execute);
+      return $execute;
   	}
 
   	function ProcessLNMO($data){
@@ -57,13 +57,13 @@
       }
 
   		$execute=$this->cUrlParams($url,$data);
-      print_r($execute);
+      return $execute;
   	}
 
     function ProcessSAPWalletBalance($data){
       $url = 'https://www.renthero.co.ke/phpsap/developer/payments/sap_wallet_balance.php';
       $execute=$this->cUrlParams($url,$data);
-      print_r($execute);
+      return $execute;
     }
 
   	function ProcessSMS($data){
@@ -81,7 +81,7 @@
   		}
   		
   		$execute=$this->cUrlParams($url,$data);
-      print_r($execute);
+      return $execute;
   	}
 
   	function ProcessAirtime($data){
@@ -107,22 +107,22 @@
       }
       
   		$execute=$this->cUrlParams($url,$data);
-      print_r($execute);
+      return $execute;
   	}
-	
- function ProcessWalletTransfer($data){
+
+    function ProcessWalletTransfer($data){
       $url="https://www.renthero.co.ke/phpsap/developer/payments/payments_wallet_transfer.php";
       $execute=$this->cUrlParams($url,$data);
-      print_r($execute);
+      return $execute;
     }
-	  
-  function ProcessC2BValidation($data){
-      $url="https://www.renthero.co.ke/phpsap/developer/payments/sapc2b_validation.php";
+
+    function ProcessC2BValidation($data){
+      $url="http://localhost/kenyastalking/payments/sapc2b_validation.php";
       $execute=$this->cUrlParams($url,$data);
-      print_r($execute);
+      return $execute;
     }
-	  
-function cUrlParams($url,$data){
+
+  	function cUrlParams($url,$data){
 		//Initiate cURL.
   		$ch = curl_init($url);
 
