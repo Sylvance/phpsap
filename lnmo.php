@@ -10,7 +10,7 @@ $apiKey="api key";
 $PhoneNumber="+254708344101";
 $Amount="10";
 
-//Set the metadata you want to attach to the request below(optional);
+//Set any metadata you want to attach to the request below(optional);
 $LNMOmetadata = [
 		"MetaData"   => "0987654321"
 	];
@@ -30,6 +30,7 @@ $LNMODataEncoded = json_encode($LNMOData);
 	//Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessLNMO($LNMODataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
