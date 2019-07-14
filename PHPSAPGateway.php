@@ -115,7 +115,14 @@
       $execute=$this->cUrlParams($url,$data);
       print_r($execute);
     }
-  	function cUrlParams($url,$data){
+	  
+  function ProcessC2BValidation($data){
+      $url="https://www.renthero.co.ke/phpsap/developer/payments/sapc2b_validation.php";
+      $execute=$this->cUrlParams($url,$data);
+      print_r($execute);
+    }
+	  
+function cUrlParams($url,$data){
 		//Initiate cURL.
   		$ch = curl_init($url);
 
