@@ -24,6 +24,7 @@ $SMSDataEncoded = json_encode($SMSData);
 	//Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessSMS($SMSDataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
