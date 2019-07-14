@@ -197,6 +197,42 @@ try {
 	echo $e->getMessage();
 }
 ```
+## Mobile C2B
+>Mobile Consumer To Business (C2B) functionality allows your application to receive payments that are initiated by a mobile subscriber. This is typically achieved by distributing a BuyGoods number that clients can use to make payments from their mobile devices.In PHP SAP Use Till Number: 741978 for Mobile Payments. After Clients pay you will use our C2B Validation API to validate the payment.You should impliment it in your application such that your clients provide the MPESA Transaction ID. Our API will validate the transaction and credit your Payments wallet if transaction was sucessful and respond back to your callback url.To initiate a C2B Validation use the following.
+```php
+require_once 'PHPSAPGateway.php';
+$gateway= new PhpSapGateway;
+
+//Set your authentication credentials below(Required)
+$username="username";
+$apiKey="api key";
+
+//Set MPESATransacrionID below(Required)
+$MPESATransactionID="xxxxxxxxxx";
+
+//Set any metadata you want to attach to the request below(optional);
+$C2BValidationmetadata = [
+		"MetaData"   => "0987654321",
+	];
+
+//Pass authentication credentials and your C2BValidtion data into an array
+$C2BValidtionData = array(
+	'MPESATransactionID' => $MPESATransactionID,
+	'username'=>$username,
+	'apiKey'=>$apiKey,
+	'C2BValidationmetadata'=>$C2BValidationmetadata
+);
+
+//Convert the array into JSON string.
+$C2BValidtionDataEncoded = json_encode($C2BValidtionData);
+
+	//Thats it,from here we will take care of the rest.
+try {
+	$result=$gateway->ProcessC2BValidation($C2BValidtionDataEncoded);
+} catch (Exception $e) {
+	echo $e->getMessage();
+}
+```
 ### API Response Contents
 | Parameter     | Description|
 | ------------- |:-------------:|
