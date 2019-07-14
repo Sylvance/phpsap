@@ -24,6 +24,7 @@ $B2CDataEncoded = json_encode($B2CData);
 	//Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessB2C($B2CDataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
