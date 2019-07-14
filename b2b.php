@@ -7,8 +7,8 @@ $username="username";
 $apiKey="api key";
 
 // Set the destination channel,destination account and amount(Required)
-$DestinationChannel ="525900";
-$DestinationAccount ="renthero.api";
+$DestinationChannel ="paybill number";
+$DestinationAccount ="account number";
 $Amount="10";
 
 //Pass authentication credentials and your B2B data into an array
