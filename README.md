@@ -198,7 +198,7 @@ try {
 }
 ```
 ## Mobile C2B
->Mobile Consumer To Business (C2B) functionality allows your application to receive payments that are initiated by a mobile subscriber. This is typically achieved by distributing a BuyGoods number that clients can use to make payments from their mobile devices.In PHP SAP Use Till Number: 741978 for Mobile Payments. After Clients pay you will use our C2B Validation API to validate the payment.You should impliment it in your application such that your clients provide the MPESA Transaction ID. Our API will validate the transaction and credit your Payments wallet if transaction was sucessful and respond back to your callback url.To initiate a C2B Validation use the following.
+>Mobile Consumer To Business (C2B) functionality allows your application to receive payments that are initiated by a mobile subscriber. This is typically achieved by distributing a BuyGoods number that clients can use to make payments from their mobile devices.In PHP SAP Use <b>Till Number: 741978</b> for Mobile Payments. After Clients pay you will use our C2B Validation API to validate the payment.You should impliment it in your application such that your clients provide the MPESA Transaction ID. Our API will validate the transaction and credit your Payments wallet if transaction was sucessful and respond back to your callback url.To initiate a C2B Validation use the following.
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
