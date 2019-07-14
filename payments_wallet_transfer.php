@@ -24,6 +24,7 @@ $WalletTransferDataEncoded = json_encode($WalletTransferData);
 //Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessWalletTransfer($WalletTransferDataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
