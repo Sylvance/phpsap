@@ -28,6 +28,7 @@ $C2BValidtionDataEncoded = json_encode($C2BValidtionData);
 	//Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessC2BValidation($C2BValidtionDataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
