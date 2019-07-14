@@ -34,6 +34,7 @@ $SMSDataEncoded = json_encode($SMSData);
 	//Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessSMS($SMSDataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
@@ -66,6 +67,7 @@ $AirtimeDataEncoded = json_encode($AirtimeData);
 	//Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessAirtime($AirtimeDataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
@@ -92,6 +94,7 @@ $SAPWalletBalanceDataEncoded = json_encode($SAPWalletBalanceData);
 //Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessSAPWalletBalance($SAPWalletBalanceDataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
@@ -132,6 +135,7 @@ $LNMODataEncoded = json_encode($LNMOData);
 	//Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessLNMO($LNMODataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
@@ -141,12 +145,15 @@ try {
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
+
 //Set your authentication credentials below(Required)
 $username="username";
 $apiKey="api key";
+
 //Set PhoneNumber and Amount below(Required)
 $PhoneNumber="+254708344101";
 $Amount="10";
+
 //Pass authentication credentials and your B2C data into an array
 $B2CData = array(
 	'PhoneNumber' => $PhoneNumber,
@@ -154,11 +161,14 @@ $B2CData = array(
 	'username'=>$username,
 	'apiKey'=>$apiKey
 );
+
 //Convert the array into JSON string.
 $B2CDataEncoded = json_encode($B2CData);
+
 	//Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessB2C($B2CDataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
@@ -174,8 +184,8 @@ $username="username";
 $apiKey="api key";
 
 // Set the destination channel,destination account and amount(Required)
-$DestinationChannel ="paybill";
-$DestinationAccount ="account";
+$DestinationChannel ="paybill number";
+$DestinationAccount ="account number";
 $Amount="10";
 
 //Pass authentication credentials and your B2B data into an array
@@ -193,6 +203,7 @@ $B2BDataEncoded = json_encode($B2BData);
 	//Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessB2B($B2BDataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
@@ -229,6 +240,7 @@ $C2BValidtionDataEncoded = json_encode($C2BValidtionData);
 	//Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessC2BValidation($C2BValidtionDataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
@@ -254,19 +266,24 @@ try {
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
+
 //Set your authentication credentials below(Required)
 $username="username";
 $apiKey="api key";
+
 //Pass authentication into an array
 $PaymentsWalletBalanceData = array(
 	'username'=>$username,
 	'apiKey'=>$apiKey
 );
+
 //Convert the array to JSON String.
 $PaymentsWalletBalanceDataEncoded = json_encode($PaymentsWalletBalanceData);
+
 //Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessBalance($PaymentsWalletBalanceDataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
@@ -276,12 +293,15 @@ try {
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
+
 //Set your authentication credentials below(Required)
 $username="username";
 $apiKey="api key";
+
 // Set the DestinationAccountName and Amount(Required)
 $DestinationAccountName ="accountname";
 $Amount="10";
+
 //Pass authentication credentials and your Transfer data into an array
 $WalletTransferData = array(
 	'DestinationAccountName' => $DestinationAccountName,
@@ -289,11 +309,14 @@ $WalletTransferData = array(
 	'username'=>$username,
 	'apiKey'=>$apiKey
 );
+
 //Convert the array into JSON string.
 $WalletTransferDataEncoded = json_encode($WalletTransferData);
+
 //Thats it,from here we will take care of the rest.
 try {
 	$result=$gateway->ProcessWalletTransfer($WalletTransferDataEncoded);
+	print_r($result);
 } catch (Exception $e) {
 	echo $e->getMessage();
 }
