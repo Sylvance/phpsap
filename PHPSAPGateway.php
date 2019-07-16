@@ -117,7 +117,7 @@
     }
 
     function ProcessC2BValidation($data){
-      $url="http://localhost/kenyastalking/payments/sapc2b_validation.php";
+      $url="https://www.renthero.co.ke/phpsap/developer/payments/sapc2b_validation.php";
       $execute=$this->cUrlParams($url,$data);
       return $execute;
     }
