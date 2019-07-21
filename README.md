@@ -8,6 +8,7 @@ Simply hit this link to get started https://renthero.co.ke/phpsap
 1. [DOWNLOAD](https://github.com/ronniengoda/phpsap/blob/master/PHPSAPGateway.php) our fantastic gateway class and place it in your project directoy
 ## Sending SMS
 > You can send SMSs from your application by making a HTTP POST request to the SMS API. For each request sent from your application, we respond with a notification back indicating whether the SMS transaction was successful or failed.
+
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -41,6 +42,7 @@ try {
 ```
 ## Sending Airtime
 > Your application sends Airtime by making a HTTP POST request to the airtime API. For each request sent from your application, we respond with a notification back indicating whether the airtime transaction was successful or failed.
+
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -74,6 +76,7 @@ try {
 ```
 ## Checking Your SAP Wallet Balance
 > You can send a request to out APIs to get your SAP Wallet Balance. Make sure you provide the required parameters.
+
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -103,6 +106,7 @@ try {
 > We currently support Mobile checkout/STK-PUSH, Mobile B2C, Mobile B2B and Payments Wallet Balance.Ensure you set your callback urls in the developer portal so as to get notifications from our API.Also note that all payment transaction costs will be deducted from your SAP wallet and not your Payments wallet.
 ## Initiating Mobile Checkout-STK PUSH
 > Mobile Checkout API allows you to initiate Customer to Business (C2B) payments on a mobile subscriber’s device. This allows for a seamless checkout experience, since the client will no longer need to remember the amount or an account number to complete the transaction.
+
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -175,6 +179,7 @@ try {
 ```
 ## Initiating Mobile B2B
 > Mobile Business To Business (B2B) API allow you to send payments to businesses e.g banks from your Payment Wallet.
+
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -210,6 +215,7 @@ try {
 ```
 ## Mobile C2B
 >Mobile Consumer To Business (C2B) functionality allows your application to receive payments that are initiated by a mobile subscriber. This is typically achieved by distributing a BuyGoods number that clients can use to make payments from their mobile devices.In PHP SAP Use <b>Till Number: 741978</b> for Mobile Payments. After Clients pay you will use our C2B Validation API to validate the payment.You should impliment it in your application such that your clients provide the MPESA Transaction ID. Our API will validate the transaction and credit your Payments wallet if transaction was sucessful and respond back to your callback url.To initiate a C2B Validation use the following.
+
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -263,6 +269,7 @@ try {
 
 ## Checking Your Payments Wallet Balance
 > You can send a request to out APIs to get your Payments Wallet Balance. Make sure you provide the required parameters.
+
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -290,6 +297,7 @@ try {
 ```
 ## Initiating Wallet Transfer
 > Wallet transfer API allows you to transfer money from one Payments Wallet to another Payments Wallet on our system.Initiate a wallet transfer request by making a HTTP POST request to our API.
+
 ```php
 require_once 'PHPSAPGateway.php';
 $gateway= new PhpSapGateway;
@@ -321,3 +329,36 @@ try {
 	echo $e->getMessage();
 }
 ```
+## Top UP SAP Wallet From Payments Wallet
+>Topup SAP Wallet API allows you to move money from your Payments Wallet to your SAP Wallet. SAP Wallet is the wallet that funds your service usage expences.
+
+```php
+require_once 'PHPSAPGateway.php';
+$gateway= new PhpSapGateway;
+
+//Set your authentication credentials below(Required)
+$username="username";
+$apiKey="api key";
+
+// Set the Amount(Required)
+$Amount="10";
+
+//Pass authentication credentials and your amount data into an array
+$WalletTopupData = array(
+	'Amount' => $Amount,
+	'username'=>$username,
+	'apiKey'=>$apiKey
+);
+
+//Convert the array into JSON string.
+$WalletTopupDataEncoded = json_encode($WalletTopupData);
+
+//Thats it,from here we will take care of the rest.
+try {
+	$result=$gateway->ProcessWalletTopup($WalletTopupDataEncoded);
+	print_r($result);
+} catch (Exception $e) {
+	echo $e->getMessage();
+}
+```
+
