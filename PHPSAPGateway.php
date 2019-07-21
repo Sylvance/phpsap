@@ -115,7 +115,13 @@
       $execute=$this->cUrlParams($url,$data);
       return $execute;
     }
-
+	  
+   function ProcessWalletTopup($data){
+	$url="https://www.renthero.co.ke/phpsap/developer/payments/topupsapwallet.php";
+	$execute=$this->cUrlParams($url,$data);
+	return $execute;
+	}
+	  
     function ProcessC2BValidation($data){
       $url="https://www.renthero.co.ke/phpsap/developer/payments/sapc2b_validation.php";
       $execute=$this->cUrlParams($url,$data);
